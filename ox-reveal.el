@@ -904,11 +904,11 @@ CONTENTS is nil. INFO is a plist holding contextual information."
     (case (intern key)
       (REVEAL (org-reveal-parse-keyword-value value))
       (REVEAL_HTML value)
-      (HTML value)
-      (TOC (concat "</section>\n"
-		   (replace-regexp-in-string
-		    "<section>\\|</section>" ""
-		    (org-reveal-toc-1 (org-html-keyword keyword contents info) info))))
+      ;; (HTML value)
+      ;; (TOC (concat "</section>\n"
+      ;;   	   (replace-regexp-in-string
+      ;;   	    "<section>\\|</section>" ""
+      ;;   	    (org-reveal-toc-1 (org-html-keyword keyword contents info) info))))
       )))
 
 (defun org-reveal-embedded-svg (path)
@@ -1142,8 +1142,8 @@ info is a plist holding export options."
    (org-reveal-stylesheets info)
    (org-reveal-mathjax-scripts info)
    (org-reveal--build-pre/postamble 'head-preamble info)
-   (org-element-normalize-string (plist-get info :html-head))
-   (org-element-normalize-string (plist-get info :html-head-extra))
+   ;; (org-element-normalize-string (plist-get info :html-head))
+   ;; (org-element-normalize-string (plist-get info :html-head-extra))
    "</head>
 <body>\n"
    (org-reveal--build-pre/postamble 'preamble info)
